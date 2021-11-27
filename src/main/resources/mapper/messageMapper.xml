@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="fun.fifu.blog.mapper.MessageMapper">
+    <select id="findAll" resultType="fun.fifu.blog.pojo.Message">
+        select *
+        from send_message;
+    </select>
+    <select id="getMessage" parameterType="Long" resultType="fun.fifu.blog.pojo.Message">
+        select *
+        from send_message
+        where id = #{id};
+    </select>
+    <insert id="addMessage" parameterType="fun.fifu.blog.pojo.Message">
+        INSERT INTO send_message (time, name, email, message)
+        VALUES (#{time}, #{name}, #{email}, #{message});
+    </insert>
+</mapper>
